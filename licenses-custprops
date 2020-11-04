@@ -1,3 +1,4 @@
+# Extracts custom properties for licenses
 #
 # for authentication, create file named okapi-login.json
 # formatted as follows:
