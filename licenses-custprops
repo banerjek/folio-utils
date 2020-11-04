@@ -1,0 +1,30 @@
+#
+# for authentication, create file named okapi-login.json
+# formatted as follows:
+#
+#  {
+#    "tenant": "your_tenant",
+#    "username": "your_username",
+#    "password": "your_password"
+#  }
+
+tenant="your_tenant"
+okapi_url="your_okapi_url"
+
+auth=$(curl -s -w '\n' -X POST -D - \
+  -H "Content-type: application/json" \
+  -H "X-Okapi-Tenant: ${tenant}" \
+  -d @okapi-login.json \
+  ${okapi_url}/authn/login)
+
+okapi_token=$(echo "${auth}" | grep 'x-okapi-token: ' |sed 's/^.* //')
+
+apicall=$(curl -s -w '\n' -X GET -D \
+  -H "Accept: application/json" \
+  -H "X-Okapi-Tenant: ${tenant}" \
+  -H "x-okapi-token: ${okapi_token}" \
+  ${okapi_url}/licenses/custprops)
+
+echo "${apicall}" | jq -r '.[] |[.name, .description, ([ .category.values[]?.value ] |join(";") ) ] | @tsv' 
+
+
