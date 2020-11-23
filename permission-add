@@ -1,0 +1,9 @@
+tenant=$(cat tenant)
+okapi_url=$(cat okapi.url)
+okapi_token=$(cat okapi.token)
+
+user_uuid="e0ccd5e7-f1c8-4e4c-b28c-bd5c7b25a50d"
+
+apicall=$(curl --http1.1 -s -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d @permission-new.json "${okapi_url}/perms/users/${user_uuid}/permissions?indexField=userId")
+
+echo "${apicall}"
