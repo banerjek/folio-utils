@@ -1,3 +1,7 @@
+# lists organizations by uuid, code, and name in tab delimited format
+#
+# useage: ./organizations-list
+
 tenant=$(cat tenant)
 okapi_url=$(cat okapi.url)
 okapi_token=$(cat okapi.token)
