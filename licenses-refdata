@@ -1,15 +1,8 @@
 # Extracts reference values for licenses from FOLIO
 # tenant and prints them in tab delimited format
 #
-# for authentication, create file named okapi-login.json
-# formatted as follows:
+# usage: ./licenses-refdata
 #
-#  {
-#    "tenant": "your_tenant",
-#    "username": "your_username",
-#    "password": "your_password"
-#  }
-
 tenant=$(cat tenant)
 okapi_url=$(cat okapi.url)
 okapi_token=$(cat okapi.token)
