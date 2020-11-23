@@ -1,6 +1,6 @@
 # FOLIO utilities
 
-A collection of minimal lightweight utilities to interact with FOLIO using cURL. Virtually all of them assume you have the following files in your working directory:
+A collection of lightweight utilities to interact with FOLIO using cURL. Virtually all assume you have the following files in your working directory:
 
 - *tenant* -- contains the ID of your FOLIO tenant
 - *okapi.url* -- contains the okapi URL for your tenant
