@@ -1,0 +1,14 @@
+# retrieve instance types in tenant
+#
+# useage: ./instance-types-get
+
+org_code=$1
+
+okapi_url=$(cat okapi.url)
+okapi_token=$(cat okapi.token)
+
+apicall=$(curl -s -w '\n' -X GET -H "Accept: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" "${okapi_url}/instance-types")
+
+instanceTypes=$(echo $apicall |jq -r '.instanceTypes[] | [.id ,.name, .code, .source] |@tsv')
+
+echo -e "${instanceTypes}" 
