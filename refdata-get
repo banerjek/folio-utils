@@ -1,0 +1,58 @@
+# Configure endpoint before using 
+
+endpoint="/alternative-title-types"
+
+tenant="$(cat tenant)"
+okapi_url="$(cat okapi.url)"
+okapi_token="$(cat okapi.token)"
+
+apicall=$(curl -s -w '\n' -X GET -D \
+  -H "Accept: application/json" \
+  -H "X-Okapi-Tenant: ${tenant}" \
+  -H "x-okapi-token: ${okapi_token}" \
+  "${okapi_url}${endpoint}")
+
+
+echo $apicall | jq '.'
+
+# /addresstypes
+# /alternative-title-types
+# /call-number-types
+# /cancellation-reason-storage/cancellation-reasons
+# /vendor-storage/categories
+# /circulation-rules-storage
+# /classification-types
+# /contributor-name-types
+# /contributor-types
+# /electronic-access-relationships
+# /data-import/fileExtensions
+# /data-import/uploadDefinitions
+# /holdings-types
+# /identifier-types
+# /ill-policies
+# /instance-formats
+# /instance-statuses
+# /instance-types
+# /loan-policy-storage/loan-policies
+# /loan-types
+# /locations
+# /location-units/campuses
+# /location-units/institutions
+# /location-units/libraries
+# /material-types
+# /calendar/periods
+# /organizations-storage/organizations
+# /patron-notice-policy-storage/patron-notice-policies
+# /refunds
+# /request-policy-storage/request-policies
+# /service-points
+# /staff-slips-storage/staff-slips
+# /statistical-code-types
+# /statistical-codes
+# /tags
+# /templates
+# /groups
+# /users
+# /waives
+
+
