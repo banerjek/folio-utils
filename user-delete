@@ -1,4 +1,4 @@
-# useage: ./user-delete "user_uuid"
+# useage ./user-delete "user_uuid" 
 
 tenant=$(cat tenant)
 okapi_url=$(cat okapi.url)
@@ -6,6 +6,6 @@ okapi_token=$(cat okapi.token)
 
 user_uuid="${1}"
 
-apicall=$(curl -s -w '\n' -X DELETE -H "Accept: text/plain" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" "${okapi_url}/users/${user_uuid}")
+apicall=$(curl --http1.1 -s -w '\n' -X DELETE -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" "${okapi_url}/users/${user_uuid}")
 
-echo ${apicall}
+echo "${apicall}"
