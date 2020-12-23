@@ -1,0 +1,6 @@
+# extracts fields from MARCJSON and outputs in TSV
+#
+# usage: ./jqtotsv (must modify command below)
+
+
+cat myfile | jq 'select(objects)|=[.] | map( paths(scalars) ) | map( map(select(numbers)="[]") | join(".")) | unique'
