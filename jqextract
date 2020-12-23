@@ -1,0 +1,6 @@
+# extracts values of all keys matching a keyname
+#
+# usage: ./jqextract "filename" "key"
+
+
+cat $1 | jq -r --arg KEY "$2" '.. | select(.[$KEY] != null)? | .[$KEY]' 
