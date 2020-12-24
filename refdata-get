@@ -10,7 +10,6 @@ reftypes=("addresstypes" \
 "alternative-title-types" \
 "call-number-types" \
 "cancellation-reason-storage/cancellation-reasons" \
-"vendor-storage/categories" \
 "circulation/rules" \
 "circulation-rules-storage" \
 "classification-types" \
@@ -69,6 +68,7 @@ reftypes=("addresstypes" \
 "tenant/rules" \
 "groups" \
 "users" \
+"vendor-storage/categories" \
 "waives")
 
 mkdir refdata 2>/dev/null || true
