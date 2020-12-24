@@ -20,12 +20,16 @@ reftypes=("addresstypes" \
 "data-import/fileExtensions" \
 "data-import/uploadDefinitions" \
 "groups" \
+"holdings-note-types" \
+"holdings-sources" \
 "holdings-types" \
 "identifier-types" \
 "ill-policies" \
 "instance-formats" \
 "instance-statuses" \
+"instance-note-types" \
 "instance-types" \
+"item-note-types" \
 "loan-policies" \
 "loan-types" \
 "locations" \
@@ -39,6 +43,7 @@ reftypes=("addresstypes" \
 "organizations/organizations" \
 "overdue-fines-policies" \
 "patron-notice-policies" \
+"refdata" \
 "refunds" \
 "request-policies" \
 "rules" \
