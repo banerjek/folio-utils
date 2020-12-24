@@ -56,7 +56,7 @@ for reftype in ${reftypes[@]}; do
 	  -H "Accept: application/json" \
 	  -H "X-Okapi-Tenant: ${tenant}" \
 	  -H "x-okapi-token: ${okapi_token}" \
-	  "${okapi_url}/${reftype}")
+	  "${okapi_url}/${reftype}?query=cql.allRecords=1&limit=100000")
 
 	echo "${reftype}: $(echo ${apicall} | jq '.totalRecords') total records"
 
