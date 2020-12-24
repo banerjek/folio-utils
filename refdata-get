@@ -60,13 +60,13 @@ reftypes=("addresstypes" \
 "refdata" \
 "refunds" \
 "request-policies" \
-"rules" \
 "service-points" \
 "staff-slips-storage/staff-slips" \
 "statistical-code-types" \
 "statistical-codes" \
 "tags" \
 "templates" \
+"tenant/rules" \
 "groups" \
 "users" \
 "waives")
