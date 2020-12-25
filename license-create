@@ -1,7 +1,0 @@
-tenant=$(cat tenant)
-okapi_url=$(cat okapi.url)
-okapi_token=$(cat okapi.token)
-
-apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d @license-create.json "${okapi_url}/licenses/licenses")
-
-echo "${apicall}"
