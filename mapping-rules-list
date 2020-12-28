@@ -1,6 +1,6 @@
-# lists organizations by uuid, code, and name in tab delimited format
+# lists mapping rules for FOLIO client 
 #
-# useage: ./organizations-list
+# useage: ./mapping-rules-list
 
 tenant=$(cat tenant)
 okapi_url=$(cat okapi.url)
