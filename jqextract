@@ -1,6 +1,6 @@
 # extracts values of all keys matching a keyname
 #
-# usage: ./jqextract "filename" "key"
+# usage: ./jqextract "key" "filename"
 
 
-cat $1 | jq -r --arg KEY "$2" '.. | select(.[$KEY] != null)? | .[$KEY]' 
+cat $2 | jq -r --arg KEY "$1" '.. | select(.[$KEY] != null)? | .[$KEY]' 
