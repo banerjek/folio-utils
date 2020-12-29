@@ -17,7 +17,7 @@ recordtype="users"
 #recordtype="service-points"
 #recordtype="users"
 
-apicall=$(crecordtype -s -w '\n' -X DELETE -D -H "Accept: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" "${okapi_recordtype}/${recordtype}/${uuid}")
+apicall=$(curl -s -w '\n' -X DELETE -D -H "Accept: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" "${okapi_recordtype}/${recordtype}/${uuid}")
 
 echo ${apicall}
 
