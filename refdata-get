@@ -41,6 +41,7 @@ reftypes=("addresstypes" \
 "item-note-types" \
 "licenses/custprops" \
 "licenses/refdata" \
+"loan-policy-storage/loan-policies" \
 "loan-policies" \
 "loan-types" \
 "locations" \
@@ -54,10 +55,13 @@ reftypes=("addresstypes" \
 "orders-storage/categories" \
 "orders-storage/interfaces" \
 "orders-storage/reporting-codes" \
+"organizations-storage/organizations" \
 "overdue-fines-policies" \
 "patron-notice-policies" \
+"patron-notice-policy-storage/patron-notice-policies" \
 "refunds" \
 "request-policies" \
+"request-policy-storage/request-policies" \
 "service-points" \
 "staff-slips-storage/staff-slips" \
 "statistical-code-types" \
