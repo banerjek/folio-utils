@@ -1,4 +1,4 @@
-# Creates location based on contents of tab delimited file
+# Creates groups based on contents of tab delimited file
 #
 # Code is expected in column 1 of a file named "groups"
 # Description is set in column 2
