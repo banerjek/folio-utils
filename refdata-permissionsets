@@ -1,0 +1,144 @@
+# Expects data in delimited file named licenses
+#
+tenant=$(cat tenant)
+okapi_url=$(cat okapi.url)
+okapi_token=$(cat okapi.token)
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' circulation << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "Circulation",
+  "id" : "${uuid}",
+  "description" : "For all users who work in the circulation desk.",
+  "tags" : [ ],
+  "subPermissions" : ["ui-inventory.all-permissions.TEMPORARY","ui-inventory.settings.electronic-access-relationships","ui-inventory.settings.statistical-codes","ui-inventory.settings.statistical-code-types","ui-inventory.settings.materialtypes","ui-inventory.settings.instance-types","ui-inventory.settings.modes-of-issuance","ui-inventory.settings.nature-of-content-terms","ui-inventory.settings.loantypes","ui-inventory.settings.item-note-types","ui-inventory.settings.instance-statuses","ui-inventory.settings.instance-note-types","ui-inventory.settings.identifier-types","ui-inventory.settings.classification-types","ui-inventory.settings.ill-policies","ui-inventory.settings.holdings-types","ui-inventory.settings.holdings-note-types","ui-inventory.settings.instance-formats","ui-inventory.settings.contributor-types","ui-inventory.settings.call-number-types","ui-inventory.settings.alternative-title-types"],
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' print_resources << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "Print Resource Cataloging",
+  "id" : "${uuid}",
+  "description" : "For all users working with cataloguing of print resources (monographs and serials).",
+  "tags" : [ ],
+  "subPermissions" : ["ui-inventory.all-permissions.TEMPORARY","ui-inventory.settings.electronic-access-relationships","ui-inventory.settings.statistical-codes","ui-inventory.settings.statistical-code-types","ui-inventory.settings.materialtypes","ui-inventory.settings.instance-types","ui-inventory.settings.modes-of-issuance","ui-inventory.settings.nature-of-content-terms","ui-inventory.settings.loantypes","ui-inventory.settings.item-note-types","ui-inventory.settings.instance-statuses","ui-inventory.settings.instance-note-types","ui-inventory.settings.identifier-types","ui-inventory.settings.classification-types","ui-inventory.settings.ill-policies","ui-inventory.settings.holdings-types","ui-inventory.settings.holdings-note-types","ui-inventory.settings.instance-formats","ui-inventory.settings.contributor-types","ui-inventory.settings.call-number-types","ui-inventory.settings.alternative-title-types"],
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' print_resource_acq << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "Print Resource acquisition",
+  "id" : "${uuid}",
+  "description" : "For all users working with acquisition of print resources (monographs and serials).",
+  "tags" : [ ],
+  "subPermissions" : ["ui-organizations.delete","ui-notes.item.create","ui-notes.item.edit","ui-notes.item.assign-unassign","ui-orders.acq.unit.assignment.manage","module.notes.enabled","ui-orders.acq.unit.assignment.assign","ui-orders.order.delete","ui-finance.acq.unit.assignment.manage","settings.orders.enabled","ui-notes.item.delete","ui-orders.order.create","ui-organizations.edit","ui-organizations.create","module.orders.enabled","ui-orders.order-lines.delete","ui-finance.acq.unit.assignment.assign","module.organizations.enabled","ui-orders.order.edit","ui-inventory.all-permissions.TEMPORARY","ui-orders.order.view","ui-orders.order-lines.edit","ui-notes.item.view","ui-orders.order-lines.create","ui-orders.order-lines.view"], 
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' erm << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "Electronic resource management",
+  "id" : "${uuid}",
+  "description" : "For users who manage electronic resources.",
+  "tags" : [ ],
+  "subPermissions" : ["ui-organizations.settings","ui-organizations.delete","ui-organizations.create","ui-organizations.edit","ui-organizations.view","ui-agreements.agreements.edit","ui-agreements.agreements.view","ui-eholdings.titles-packages.create-delete","ui-eholdings.records.edit","ui-eholdings.package-title.select-unselect","ui-erm-usage.view","ui-licenses.licenses.edit","ui-licenses.licenses.view","ui-notes.item.assign-unassign","ui-notes.item.create","ui-notes.item.delete","ui-notes.item.edit","ui-notes.item.view","ui-organizations.creds.view","ui-organizations.creds.manage","settings.agreements.enabled","ui-eholdings.settings.kb","ui-eholdings.settings.root-proxy","settings.licenses.enabled","settings.notes.enabled","settings.organizations.enabled","settings.tags.enabled","module.search.enabled","module.eholdings.enabled","module.organizations.enabled","module.agreements.enabled","module.notes.enabled","ui-users.view"], 
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' erm_view << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "ERM view only",
+  "id" : "${uuid}",
+  "description" : "For users that look at but never edit agreements and licenses. E.g. staff who work with publishing support for researchers.",
+  "tags" : [ ],
+  "subPermissions" : ["ui-erm-usage.view","module.agreements.enabled","ui-notes.item.view","ui-licenses.licenses.view","ui-organizations.view","ui-notes.item.create","ui-agreements.agreements.view","ermusage.view"], 
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' erm_user << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "ERM User",
+  "id" : "${uuid}",
+  "description" : "Standard set for users",
+  "tags" : [ ],
+  "subPermissions" : ["ui-agreements.resources.view","ui-eholdings.titles-packages.create-delete","ui-eholdings.records.edit","ui-eholdings.package-title.select-unselect","ermusage.all","ermusage.user","ermusage.view","ui-erm-usage.view","ui-licenses.licenses.delete","ui-licenses.licenses.edit","ui-licenses.licenses.view","ui-notes.item.assign-unassign","ui-notes.item.create","ui-notes.item.delete","ui-notes.item.edit","ui-notes.item.view","ui-orders.acq.unit.assignment.assign","ui-orders.order-lines.create","ui-orders.order.create","ui-orders.order-lines.delete","ui-orders.order-lines.edit","ui-orders.order.edit","ui-orders.acq.unit.assignment.manage","ui-orders.order.delete","ui-orders.order-lines.view","ui-orders.order.view","ui-organizations.creds.manage","ui-organizations.create","ui-organizations.delete","settings.notes.enabled","module.eholdings.enabled","module.notes.enabled","ui-users.reset-password-link.send","ui-users.view"],
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+uuid=$(uuidgen)
+permname=$(uuidgen)
+
+IFS='' read -r -d '' erm_admin << EndOfPermission
+
+{
+  "permissionName" : "${permname}",
+  "displayName" : "ERM Admin",
+  "id" : "${uuid}",
+  "description" : "All authorizations for ERM and also permissions for system settings",
+  "tags" : [ ],
+  "subPermissions" : ["ui-agreements.resources.view","ui-plugin-find-license.search","ui-licenses.licenses.delete","ui-licenses.licenses.edit","ui-licenses.licenses.view","ui-local-kb-admin.jobs.edit","ui-local-kb-admin.jobs.delete","ui-local-kb-admin.kbs.manage","ui-local-kb-admin.jobs.view","ui-notes.item.assign-unassign","ui-notes.item.create","ui-notes.item.delete","ui-notes.item.edit","ui-notes.item.view","ui-orders.acq.unit.assignment.assign","ui-orders.order-lines.create","ui-orders.order.create","ui-orders.order-lines.delete","ui-orders.order-lines.edit","ui-orders.order.edit","ui-orders.acq.unit.assignment.manage","ui-orders.order.delete","ui-orders.order-lines.view","ui-orders.order.view","ui-organizations.creds.manage","ui-organizations.create","ui-organizations.delete","settings.agreements.enabled","ui-myprofile.settings.change-password","settings.notes.enabled","module.orders.enabled","module.notes.enabled"],
+  "mutable" : true,
+  "visible" : true
+
+}
+EndOfPermission
+
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${circulation}" "${okapi_url}/perms/permissions")
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${print_resources}" "${okapi_url}/perms/permissions")
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${print_resource_acq}" "${okapi_url}/perms/permissions")
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${erm}" "${okapi_url}/perms/permissions")
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${erm_view}" "${okapi_url}/perms/permissions")
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${erm_user}" "${okapi_url}/perms/permissions")
+apicall=$(curl --http1.1 -v -w '\n' -X POST -H "Content-type: application/json" -H "X-Okapi-Tenant: ${tenant}" -H "x-okapi-token: ${okapi_token}" -d "${erm_admin}" "${okapi_url}/perms/permissions")
+
+echo "${apicall}"
+
