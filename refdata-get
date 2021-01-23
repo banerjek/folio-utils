@@ -42,7 +42,6 @@ reftypes=("addresstypes" \
 "licenses/custprops" \
 "licenses/refdata" \
 "loan-policy-storage/loan-policies" \
-"loan-policies" \
 "loan-types" \
 "locations" \
 "location-units/campuses" \
@@ -60,7 +59,6 @@ reftypes=("addresstypes" \
 "patron-notice-policies" \
 "patron-notice-policy-storage/patron-notice-policies" \
 "refunds" \
-"request-policies" \
 "request-policy-storage/request-policies" \
 "service-points" \
 "staff-slips-storage/staff-slips" \
